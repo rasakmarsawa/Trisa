@@ -10,6 +10,8 @@ class detailPesanan
   function getDetailPesananByPesanan($post){
     $sql = "SELECT *
     FROM detail_pesanan
+    INNER JOIN barang ON
+      barang.id_barang = detail_pesanan.id_barang
     WHERE tanggal = '".$post['tanggal']."' AND no = ".$post['no']."
     ORDER BY nama_barang desc";
     $result = $GLOBALS['mysqli']->query($sql);
